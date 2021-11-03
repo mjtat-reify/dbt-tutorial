@@ -1,0 +1,16 @@
+config:
+  send_anonymous_usage_stats: False
+
+redshift_data_warehouse:
+  target: production
+  outputs:
+    production:
+      type: redshift
+      host: 127.0.0.1
+      user: analytics
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 5439
+      dbname: analytics
+      schema: dbt_michelletat
+      threads: 4
+      sslmode: require
